@@ -1,10 +1,20 @@
 import cv2
+
+#Deepface is a lightweight face recognition and facial attribute analysis (age, gender, emotion and race) framework for python
 from deepface import DeepFace
-img = cv2.imread("/content/r7.jpg")
+
 import matplotlib.pyplot as plt 
+
+img = cv2.imread("/content/r7.jpg")
+
 plt.imshow(cv2.cvtColor(img,cv2.COLOR_BGR2RGB))
+
 predictions = DeepFace.analyze(img)
+
 print(predictions)
+
+#Haarcascade xml file to be gotten from the link provided below
+#https://github.com/opencv/opencv/blob/master/data/haarcascades/haarcascade_frontalface_default.xml
 faceCascade = cv2.CascadeClassifier(cv2.data.haarcascades+'/content/haarcascade_frontalface_default.xml')
 
 gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
